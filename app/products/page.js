@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "@/components/Link";
+import Loading from "@/components/Loading";
 import { useState, useEffect } from "react";
 
 export default function Products() {
@@ -13,6 +14,10 @@ export default function Products() {
       .then((res) => res.json())
       .then((json) => setProducts(json));
   }, []);
+
+  if(products.length===0){
+    return <Loading/>
+  }
 
   return (
     <div className="p-5 bg-slate-500">
