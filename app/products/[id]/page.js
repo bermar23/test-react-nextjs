@@ -2,6 +2,7 @@
 
 import Link from "@/components/Link";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Product({ params: { id } }) {
   const [product, setProduct] = useState([]);
@@ -18,17 +19,15 @@ export default function Product({ params: { id } }) {
 
   return (
     <>
-      <div className="p-5 bg-slate-100 flex gap-4">
-        <Link href="/">Home</Link>
-        <Link href="/products">Products</Link>
-      </div>
-
       <div className="flex flex-col gap-4 mt-4 p-4 bg-slate-100">
+          <h1>Product Details</h1>
+
           <span>id: {product.id}</span>
           <span>title: {product.title}</span>
           <span>price: {product.price}</span>
           <span>category: {product.category}</span>
           <span>description: {product.description}</span>
+          <Image src={product.image} width={300} height={200}/>
         </div>
     </>
   );

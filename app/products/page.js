@@ -16,11 +16,7 @@ export default function Products() {
 
   return (
     <div className="p-5 bg-slate-500">
-      <div>
-        <Link href="/">Go Home</Link>
-      </div>
-
-      <h1>Products</h1>
+      <h1>Product List</h1>
 
       <div className="flex flex-col gap-4 mt-4">
         {products.map((product) => {
