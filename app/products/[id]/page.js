@@ -6,14 +6,17 @@ import Image from "next/image";
 import Loading from "@/components/Loading";
 
 export default function Product({ params: { id } }) {
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState();
 
   useEffect(() => {
     //fetching can be done here
     //this will be executed once mount
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
-      .then((json) => setProduct(json));
+      .then((json) => {
+        setProduct(json)
+        console.log(json)
+      });
   }, []);
 
   if (!product) return <Loading />;
